@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+# 保存瞬时的文本内容
 def set_moments_text(user_id, content):
     with open(f"{user_id}_temp.json", "w") as file:
         data = {
@@ -27,6 +28,7 @@ def set_moments_text(user_id, content):
                 }
         json.dump(data, file)
         return True
+#     获取瞬时添加图片
 def set_moments_photos(user_id, photos_url):
     with open(f"{user_id}_temp.json", "r") as file:
         data = json.load(file)
@@ -40,6 +42,7 @@ def set_moments_photos(user_id, photos_url):
         json.dump(data, file)
         print('图片添加成功')
         return True
+#     发布瞬时
 def post_moments(user_url, user_id,user_token):
     post_moments_api = f'{user_url}/apis/api.plugin.halo.run/v1alpha1/plugins/PluginMoments/moments'
     with open(f"{user_id}_temp.json", "r") as file:

@@ -39,7 +39,7 @@ def get_group_name_by_index(user_web_url, index):
     else:
         return f"Error: Unable to fetch data, status code {response.status_code}"
 
-
+# 上传图片
 def upload_photos(access_token, user_web_url, media_id, user_token):
     media_url = f"https://api.weixin.qq.com/cgi-bin/media/get?access_token={access_token}&media_id={media_id}"
     response = requests.get(media_url, stream=True)
